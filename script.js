@@ -1,9 +1,16 @@
 function getFormvalue(event) {
-  event.preventDefault(); // Prevent page reload
+  event.preventDefault(); // Prevent form submission
 
-  const firstName = document.querySelector('[name="fname"]').value.trim();
-  const lastName = document.querySelector('[name="lname"]').value.trim();
+  const form = document.getElementById("nameForm");
+  const fname = form.fname.value.trim();
+  const lname = form.lname.value.trim();
 
-  const fullName = `${firstName} ${lastName}`;
-  alert(fullName);
+  if (!fname && !lname) {
+    alert("Please enter your first and last name.");
+    return;
+  }
+
+  alert(`${fname} ${lname}`);
 }
+
+document.getElementById("nameForm").addEventListener("submit", getFormvalue);
