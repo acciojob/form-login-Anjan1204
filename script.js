@@ -1,16 +1,13 @@
-function getFormvalue(event) {
-  event.preventDefault(); // Prevent form submission
+function getFormvalue(e) {
+  e.preventDefault(); // Prevent page refresh
 
-  const form = document.getElementById("nameForm");
-  const fname = form.fname.value.trim();
-  const lname = form.lname.value.trim();
+  const fname = document.querySelector('[name="fname"]').value.trim();
+  const lname = document.querySelector('[name="lname"]').value.trim();
 
   if (!fname && !lname) {
-    alert("Please enter your first and last name.");
+    alert("Please enter your name.");
     return;
   }
 
-  alert(`${fname} ${lname}`);
+  alert(fname + " " + lname);
 }
-
-document.getElementById("nameForm").addEventListener("submit", getFormvalue);
